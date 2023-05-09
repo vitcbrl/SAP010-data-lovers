@@ -1,11 +1,22 @@
 /*html 1*/
 
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
 body {
     background: url(https://images.alphacoders.com/805/805180.jpg);
-    height: 45vw;
-    background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #logo {
@@ -17,7 +28,7 @@ body {
 
 #botãoiniciar {
     color: rgba(255, 255, 255, 0.91);
- 
+
 
 }
 
@@ -43,21 +54,12 @@ body {
 
 /*html 2*/
 
-.botãoreset {
+.botãohome {
     padding: 0vw;
     position: absolute;
     top: 0.3vw;
     left: 0vw;
     z-index: 1;
-}
-
-.giflateral {
-    padding: 0vw;
-    position: absolute;
-    top: 0vw;
-    left: 81vw;
-    z-index: 1;
- 
 }
 
 input {
@@ -89,9 +91,9 @@ input {
 
 .tarja {
     background: rgba(25, 25, 25, 0.915);
-    padding: 1vw 68.3vw 8.5vw 32vw;
-    position: absolute;
-    top: 0vw;
+    padding: 100px 800px 65px;
+    margin-top: -24.5%;
+   
 
 }
 
