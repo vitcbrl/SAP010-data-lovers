@@ -1,68 +1,162 @@
-/*html 1*/
-
-html,
-body {
-    height: 100%;
+* {
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 
-body {
-    background: url(https://images.alphacoders.com/805/805180.jpg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
+/*PRIMEIRA PÁGINA - HTML */
+.contenedorInicio{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+body{
+    background-image: url(https://images.alphacoders.com/805/thumb-1920-805180.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-#logo {
-    top: -12%;
-    left: 28%;
-    position: absolute;
 
-}
-
-#botãoiniciar {
-    color: rgba(255, 255, 255, 0.91);
-
-
-}
-
-.botãoiniciar {
+.botãoiniciar{
     background-color: rgba(81, 81, 81, 0.558);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 17px;
-    position: absolute;
-    top: 29%;
-    left: 47.5%;
-    display: inline-block;
     border: 3.0px solid #000000;
+    width: 5.5vw;
+    height: 2vw;
+    text-align: center;
+    font-size: 1.3vw;
+    border-radius: 1vw;
+    margin-top: -4vw;
+    margin-left: 45.5vw;
+    z-index: 1;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.imagem1 {
+    margin-top: -5.5vw;
+    margin-left: 27vw;
+}
+
+.imagem2 {
+    margin-top: -4vw;
+    margin-left: 28vw;
+}
+
+
+/*SEGUNDA PÁGINA - HTML 1*/
+
+header {
+    background: rgba(25, 25, 25, 0.915);
+    position: fixed;
+    width: 100%;   
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 75px;
+    z-index: -1;
+}
+
+#botãohome {
+    margin-left: -1%;
+    float: left;
+    margin-top: 10px;
+    z-index: 1;
+}
+
+.padrãobox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 90px;
+    margin-left: 400px;
+    float: left;
+    position: fixed;
+
+}
+
+.filtro{
+    margin-right: 55%;
+    width: 140px;
+    height: 100px;
+    text-align: center;
+}
+
+
+select {
+    background-color:rgb(81, 255, 0);
     border-radius: 10px;
-    padding: 5px;
-    z-index: 1;
+    margin-top: -30px;
+    margin-left: -15px;
+    height: 40px;
+    width: 130px;
+    text-align: center;
+    font-size: 19px;
 }
 
-#logo2 {
-    top: 21%;
-    left: 28%;
-    position: absolute;
+label {
+    text-align: center;
+    color: white;
+    font-size: 19px;
+    position: fixed;
+    top: 45px;
+  
+}
+  
+#ordenar{
+    float: right;
+    top: 40%;
+    right: 90%;
+    position: fixed
 }
 
-/*html 2*/
+/*DADOS FORNECIDOS data.js
 
-.botãohome {
-    padding: 0vw;
-    position: absolute;
-    top: 0.3vw;
-    left: 0vw;
-    z-index: 1;
+p{
+    color: white;
+    text-align: center;
 }
 
-input {
+h1{
+    color: white;
+    font-size: 1.5vw;
+    text-align: center;
+
+}
+
+.caracteres{
+  border-radius: 35px;
+  margin: 35px;
+  margin-left: 50px;
+  width: 230px;
+  text-align: center;
+  background-color:rgb(11, 11, 11);
+  box-shadow: 0 0 18px rgb(245, 248, 248);
+}
+
+#root {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 85px;
+  justify-content: center;
+  margin-left: 100px;
+  margin-right: 10px;
+  padding-bottom: 50px;
+}
+
+#root img{
+   width: 195px;
+   height: 230px;
+   border-radius: 20px;
+   margin: 15px;
+}
+
+*/
+
+/*input {
     background-color: rgb(0, 255, 26);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.3vw;
@@ -73,93 +167,4 @@ input {
     border: 0.2vw solid #ffffff;
     border-radius: 1vw;
     padding: 0.5vw;
-}
-
-#order {
-    background-color: rgb(0, 255, 26);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1.3vw;
-    position: absolute;
-    top: 15vw;
-    left: 3vw;
-    display: inline-block;
-    border: 0.2vw solid #ffffff;
-    border-radius: 1vw;
-    padding: 0.5vw;
-
-}
-
-.tarja {
-    background: rgba(25, 25, 25, 0.915);
-    padding: 100px 800px 65px;
-    margin-top: -24.5%;
-   
-
-}
-
-#textgenero {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1.3vw;
-    color: white;
-    top: 2.5vw;
-    left: 23.2vw;
-    position: absolute;
-}
-
-#gender {
-    background-color: rgb(0, 255, 26);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1.3vw;
-    position: absolute;
-    top: 4.5vw;
-    left: 23vw;
-    display: inline-block;
-    border: 0.2vw solid #ffffff;
-    border-radius: 1vw;
-    padding: 0.5vw;
-}
-
-
-#textespecie {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1.3vw;
-    color: white;
-    top: 2.5vw;
-    left: 42.7vw;
-    position: absolute;
-}
-
-#species {
-    background-color: rgb(0, 255, 26);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1.3vw;
-    position: absolute;
-    top: 4.5vw;
-    left: 42.5vw;
-    display: inline-block;
-    border: 0.2vw solid #ffffff;
-    border-radius: 1vw;
-    padding: 0.5vw;
-}
-
-#textstatusdevida {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1.3vw;
-    color: white;
-    top: 2.5vw;
-    left: 67.2vw;
-    position: absolute;
-}
-
-#status {
-    background-color: rgb(0, 255, 26);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1.3vw;
-    position: absolute;
-    top: 4.5vw;
-    left: 67vw;
-    display: inline-block;
-    border: 0.2vw solid #ffffff;
-    border-radius: 1vw;
-    padding: 0.5vw;
-}
+}*/
