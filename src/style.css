@@ -6,19 +6,21 @@
 
 
 /*PRIMEIRA PÁGINA - HTML */
-.contenedorInicio{
+.contenedorInicio {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
 }
-body{
+
+body {
     background-image: url(https://images.alphacoders.com/805/thumb-1920-805180.jpg);
-    background-repeat: no-repeat;
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 
-.botãoiniciar{
+.botãoiniciar {
     background-color: rgba(81, 81, 81, 0.558);
     border: 3.0px solid #000000;
     width: 5.5vw;
@@ -29,7 +31,13 @@ body{
     margin-top: -4vw;
     margin-left: 45.5vw;
     z-index: 1;
+    transition: transform 0.2s ease-in-out;
 }
+
+.botãoiniciar:hover {
+    transform: scale(1.5);
+}
+
 
 a {
     text-decoration: none;
@@ -49,10 +57,17 @@ a {
 
 /*SEGUNDA PÁGINA - HTML 1*/
 
+.body2 {
+    background: url(https://images.alphacoders.com/805/thumb-1920-805180.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 header {
     background: rgba(25, 25, 25, 0.915);
     position: fixed;
-    width: 100%;   
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -62,12 +77,13 @@ header {
 
 #botãohome {
     margin-left: -1%;
+    position: fixed;
     float: left;
     margin-top: 10px;
     z-index: 1;
 }
 
-.padrãobox{
+.padrãobox {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -78,7 +94,7 @@ header {
 
 }
 
-.filtro{
+.filtro {
     margin-right: 55%;
     width: 140px;
     height: 100px;
@@ -87,7 +103,7 @@ header {
 
 
 select {
-    background-color:rgb(81, 255, 0);
+    background-color: rgb(81, 255, 0);
     border-radius: 10px;
     margin-top: -30px;
     margin-left: -15px;
@@ -103,58 +119,15 @@ label {
     font-size: 19px;
     position: fixed;
     top: 45px;
-  
+
 }
-  
-#ordenar{
+
+#ordenar {
     float: right;
     top: 40%;
     right: 90%;
     position: fixed
 }
-
-/*DADOS FORNECIDOS data.js
-
-p{
-    color: white;
-    text-align: center;
-}
-
-h1{
-    color: white;
-    font-size: 1.5vw;
-    text-align: center;
-
-}
-
-.caracteres{
-  border-radius: 35px;
-  margin: 35px;
-  margin-left: 50px;
-  width: 230px;
-  text-align: center;
-  background-color:rgb(11, 11, 11);
-  box-shadow: 0 0 18px rgb(245, 248, 248);
-}
-
-#root {
-  display: flex;
-  flex-wrap: wrap;
-  padding-top: 85px;
-  justify-content: center;
-  margin-left: 100px;
-  margin-right: 10px;
-  padding-bottom: 50px;
-}
-
-#root img{
-   width: 195px;
-   height: 230px;
-   border-radius: 20px;
-   margin: 15px;
-}
-
-*/
 
 /*input {
     background-color: rgb(0, 255, 26);
@@ -168,3 +141,53 @@ h1{
     border-radius: 1vw;
     padding: 0.5vw;
 }*/
+
+/*DADOS FORNECIDOS data.js*/
+
+p {
+    color: white;
+    text-align: center;
+    margin-bottom: 3px;
+
+}
+
+h2 {
+    color: white;
+    font-size: 1.2vw;
+    text-align: center;
+    margin-top: -12px;
+    margin-bottom: 5px;
+
+}
+
+.caracter {
+    border-radius: 10px;
+    margin: 90px;
+    margin-bottom: -12px;
+    margin-left: 20px;
+    width: 250px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.425);
+    box-shadow: 0 0 18px rgb(255, 255, 255);
+    z-index: -2;
+    transform: scaleY(1.1);
+}
+
+
+#root {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 85px;
+    justify-content: center;
+    margin-left: 100px;
+    margin-right: 10px;
+    padding-bottom: 50px;
+    content: '';
+}
+
+#root img {
+    width: 180px;
+    height: 230px;
+    margin: 15px;
+    transform: scaleX(1.2);
+}

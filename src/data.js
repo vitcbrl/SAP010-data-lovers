@@ -36,12 +36,12 @@ export function filterGender(gender) {
 //);
 // return filteredPlanets;}
 
-const calculateGenderPercentage = (gender, array) => {
+/*const calculateGenderPercentage = (gender, array) => {
   const filterGender = resultado.filter(
     (resultado) => resultado.gender === gender
   );
   return ((filterGender.length / array.length) * 100).toFixed(2);
-};
+};*/
 
 //Ordenação de A-Z
 export function sortAll(order, resultado) {
