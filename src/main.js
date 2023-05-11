@@ -1,49 +1,47 @@
 import data from "./data/rickandmorty/rickandmorty.js";
-import { filterByStatus, filterSpecies, filterGender, sortAll } from "./data.js";
+import {
+  filterByStatus,
+  filterSpecies,
+  filterGender,
+  sortAll,
+} from "./data.js";
 
+//aqui utilizo a sintaxe de objetopara criar e configurar os elementos html
+const crearElementosDeCaracteres = (caracteres) => {
+  return caracteres.map((element) => {
+    //recebe um array de caracteres e uso o metodo map queitera sobre ele e cria um novo array com elementos html
+    // cada elemento é criado utilizando uma sintaxe de template string que permite inserir variaveis no meio do html a sintaxe é ${}
+    //dessa maneira é possivel concatenar strings com as informações dos personagens diretamente no html sem a necessidade de variaveis auxiliares
+    return `
+      <div class="caracteres">
+        <img src="${element.image}">
+        <h1>${element.name}</h1>
+        <p>${element.status}</p>
+        <p>${element.species}</p>
+        <p>${element.gender}</p>
+      </div>
+    `;
+  });
+};
 
-/*Essa função cria uma div com a classe "caracter" e quatro elementos filhos: 
-uma imagem, um h2 com o nome do personagem, um parágrafo com o status e outro com a espécie. */
-const criarcardcaracter = (caracter) => {
-  const div = document.createElement("div");
-  div.classList.add("caracter");
-
-  const imagem = document.createElement("img");
-  imagem.src = caracter.image;
-  imagem.alt = `${caracter.name} thumbnail`;
-
-  const nome = document.createElement("h2");
-  nome.textContent = caracter.name;
-
-  const status = document.createElement("p");
-  status.textContent = `Status: ${caracter.status}`;
-
-  const especie = document.createElement("p");
-  especie.textContent = `Espécie: ${caracter.species}`;
-
-  div.appendChild(imagem);
-  div.appendChild(nome);
-  div.appendChild(status);
-  div.appendChild(especie);
-
-  return div;
-
-}
-
-const todosCaracteres = data.results.map((caracter) => criarcardcaracter(caracter));
-
-
+//Aqui e para aparecer na tela
+const mostrarTodosLosCaracteres = (data) => {
+  const contenedor = document.querySelector("#root");
+  const todosLosCaracteres = crearElementosDeCaracteres(data.results);
+  contenedor.innerHTML = todosLosCaracteres.join("");
+};
 
 const estadoVida = document.getElementById("status");
 estadoVida.addEventListener("change", () => {
-
   const card = document.querySelector("#root");
 
   card.innerHTML = "";
 
   const personStatus = filterByStatus(estadoVida.value);
 
-  const filtroStatus = personStatus.map((caracter) => criarcardcaracter(caracter));
+  const filtroStatus = personStatus.map((caracter) =>
+    criarcardcaracter(caracter)
+  );
 
   filtroStatus.forEach((divCaracter) => {
     card.appendChild(divCaracter);
@@ -62,7 +60,9 @@ especie.addEventListener("change", () => {
   card.innerHTML = "";
   const personEspecie = filterSpecies(especie.value);
 
-  const filtroEspecie = personEspecie.map((caracter) => criarcardcaracter(caracter));
+  const filtroEspecie = personEspecie.map((caracter) =>
+    criarcardcaracter(caracter)
+  );
 
   filtroEspecie.forEach((divCaracter) => {
     card.appendChild(divCaracter);
@@ -75,18 +75,18 @@ especie.addEventListener("change", () => {
   }
 });
 
-
-
 const genero = document.getElementById("gender");
 genero.addEventListener("change", () => {
   const card = document.querySelector("#root");
   card.innerHTML = "";
   const personGenero = filterGender(genero.value);
 
-  const filtroGenero = personGenero.map((caracter) => criarcardcaracter(caracter));
+  const filtroGenero = personGenero.map((caracter) =>
+    criarcardcaracter(caracter)
+  );
 
   filtroGenero.forEach((divCaracter) => {
-    card.appendChild(divCaracter)
+    card.appendChild(divCaracter);
   });
 
   if (genero.value === "All") {
