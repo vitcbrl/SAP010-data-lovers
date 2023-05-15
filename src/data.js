@@ -4,11 +4,9 @@ const resultado = data.results; // aqui estou atribuindo os resultados do meu ar
 //crio uma function que a finalidade é ver se o personagem ta vivo ou morto.Coloco o export pois essa função vai ser usada no meu arquivoo main.js
 export function filterByStatus(status) {
   const filteredStatus = resultado.filter((resultado) => {
-    
     return resultado.status === status;
   });
   return filteredStatus;
-
 }
 
 export function filterSpecies(species) {
@@ -25,18 +23,32 @@ export function filterGender(gender) {
   return filteredGender;
 }
 
+export function porcentagem(data) {
+  const porcento = (data * 100) / 31;
+  const porcentoArredondado = Math.round(porcento);
+  return porcentoArredondado;
+}
 
-//Ordenação de A-Z
-export function sortAll(order, resultado) {
-  const charactersCopy = [...resultado];
-  //o metodo sort ordena a copia do array de personagens
-  charactersCopy.sort((A, Z) => {
-    //a função localcompare compara os nomes de personagens e retorna um valor negativo,zero ou positivo.
-    if (order) {
-      return A.name.localeCompare(Z.name);
-    } else {
-      return Z.name.localeCompare(A.name);
-    }
-  });
-  return charactersCopy;
+export function ordenar(dadosFiltrados, tipoOrdenacao) {
+  const novaArray = [...dadosFiltrados];
+
+  if (tipoOrdenacao === "az") {
+    novaArray.sort(function (a, b) {
+      if (a.name < b.name) {
+        return -1;
+      } else {
+        return +1;
+      }
+    });
+  } else if (tipoOrdenacao === "za") {
+    //exbibe na ordem inversa
+    novaArray.sort(function (a, b) {
+      if (a.name > b.name) {
+        return -1;
+      } else {
+        return +1;
+      }
+    });
+  }
+  return novaArray;
 }
