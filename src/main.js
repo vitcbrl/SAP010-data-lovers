@@ -4,6 +4,7 @@ import {
   filterSpecies,
   filterGender,
   ordenar,
+  porcentagem,
 } from "./data.js";
 
 // Função para criar o card do personagem
@@ -24,10 +25,14 @@ const criarcardcaracter = (caracter) => {
   const especie = document.createElement("p");
   especie.textContent = `Espécie: ${caracter.species}`;
 
+  const episodios = document.createElement("p");
+  episodios.textContent = `Esse personagem aparece em: ${porcentagem()}`;
+
   div.appendChild(imagem);
   div.appendChild(nome);
   div.appendChild(status);
   div.appendChild(especie);
+  div.appendChild(episodios);
 
   return div;
 };
@@ -47,7 +52,11 @@ const atualizarListaPersonagens = () => {
     .filter((personagem) => filtroEspecie.includes(personagem))
     .filter((personagem) => filtroGenero.includes(personagem));
 
-  const listaOrdenada = ordenar(personagensFiltrados, true);
+  let listaOrdenada = [...personagensFiltrados];
+
+  if (ordenacao.value !== "nenhum") {
+    listaOrdenada = ordenar(personagensFiltrados, ordenacao.value);
+  }
 
   const card = document.querySelector("#root");
   card.innerHTML = "";
@@ -73,5 +82,11 @@ especie.addEventListener("change", () => {
 // Filtro de gênero
 const genero = document.getElementById("gender");
 genero.addEventListener("change", () => {
+  atualizarListaPersonagens();
+});
+
+//Filtro de ordenação
+const ordenacao = document.getElementById("ordenacao");
+ordenacao.addEventListener("change", () => {
   atualizarListaPersonagens();
 });
