@@ -26,7 +26,8 @@ const criarcardcaracter = (caracter) => {
   especie.textContent = `Espécie: ${caracter.species}`;
 
   const episodios = document.createElement("p");
-  episodios.textContent = `Esse personagem aparece em: ${porcentagem()}`;
+  const porcentagemAparicoes = porcentagem(caracter.episode.length);
+  episodios.textContent = `Porcentagem de aparições: ${porcentagemAparicoes}%`;
 
   div.appendChild(imagem);
   div.appendChild(nome);
