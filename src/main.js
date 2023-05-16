@@ -7,7 +7,7 @@ import {
   porcentagem,
 } from "./data.js";
 
-// Função para criar o card do personagem
+// Função para criar o card do personagemm
 const criarcardcaracter = (caracter) => {
   const div = document.createElement("div");
   div.classList.add("caracter");
