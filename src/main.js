@@ -27,7 +27,7 @@ const criarcardcaracter = (caracter) => {
 
   const episodios = document.createElement("p");
   const porcentagemAparicoes = porcentagem(caracter.episode.length);
-  episodios.textContent = `Porcentagem de aparições: ${porcentagemAparicoes}%`;
+  episodios.textContent = `Aparições: ${porcentagemAparicoes}%`;
 
   div.appendChild(imagem);
   div.appendChild(nome);
