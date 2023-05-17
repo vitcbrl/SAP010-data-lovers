@@ -24,6 +24,20 @@ export function filterGender(gender) {
   return filteredGender;
 }
 
+/*export function filterByOrigin(origin) {
+  const filteredOrigin = resultado.filter((resultado) => {
+    return resultado.origin.name === origin;
+  });
+  return filteredOrigin;
+}
+
+export function filterByLocation(location) {
+  const filteredOrlocation = resultado.filter((resultado) => {
+    return resultado.location.name === location;
+  });
+  return filteredOrlocation;
+}*/
+
 export function porcentagem(data) {
   const porcento = (data * 100) / 31;
   const porcentoArredondado = Math.round(porcento);
