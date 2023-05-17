@@ -6,6 +6,8 @@ import {
   ordenar,
 } from "../src/data.js";
 
+//hi carolzi
+
 describe("testando o filtro de Ordem alfabética", () => {
   it("carregando os personagens a-z", () => {
     const dadosOrdenados = ordenar(data.results, "az");
@@ -24,13 +26,15 @@ describe("testando o filtro de estado de vida", () => {
   it("carregando os personagens vivos", () => {
     const dadosOrdenados = filterByStatus(data.results, "Alive");
 
-    expect(dadosOrdenados).toBe([{ name: "Baby Ricky", status: "Alive" }]);
+    expect(dadosOrdenados).toEqual([{ name: "Baby Ricky", status: "Alive" }]);
   });
 
   it("carregando os personagens mortos", () => {
     const dadosOrdenados = filterByStatus(data.results, "Dead");
 
-    expect(dadosOrdenados).toBe([{ name: "Adjudicator Rick", status: "Dead" }]);
+    expect(dadosOrdenados).toEqual([
+      { name: "Adjudicator Rick", status: "Dead" },
+    ]);
   });
 });
 
