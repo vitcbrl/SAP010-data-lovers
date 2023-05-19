@@ -121,3 +121,16 @@ ordenacaoSelect.addEventListener("change", () => {
     card.appendChild(divCaracter);
   });
 });
+
+
+
+describe("testando o filtro de estado de vida", () => {
+  const data = [
+    { name: "Adjudicator Rick", status: "Dead" },
+    { name: "Baby Rick", status: "Alive" },
+  ];
+  it("os vivos", () => {
+    const filteredByStatus = filterStatus("Alive", data);
+    expect(filteredByStatus.toEqual("Baby Rick"));
+  });
+});

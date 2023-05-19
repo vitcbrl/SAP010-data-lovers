@@ -1,4 +1,3 @@
-import data from "./data/rickandmorty/rickandmorty.js";
 import {
   filterByStatus,
   filterSpecies,
@@ -6,6 +5,7 @@ import {
   ordenar,
   porcentagem,
 } from "./data.js";
+import data from "./data/rickandmorty/rickandmorty.js";
 
 // Função para criar o card do personagemm
 const criarcardcaracter = (caracter) => {
@@ -48,13 +48,35 @@ data.results.forEach((caracter) => {
 
 // Função para atualizar a lista de personagens de acordo com os filtros selecionados
 const atualizarListaPersonagens = () => {
-  const filtroStatus = filterByStatus(estadoVida.value);
-  const filtroEspecie = filterSpecies(especie.value);
-  const filtroGenero = filterGender(genero.value);
+  const filtroStatus = filterByStatus(data.results, estadoVida.value);
+  const filtroEspecie = filterSpecies(data.results, especie.value);
+  const filtroGenero = filterGender(data.results, genero.value);
 
-  const personagensFiltrados = filtroStatus
-    .filter((personagem) => filtroEspecie.includes(personagem))
-    .filter((personagem) => filtroGenero.includes(personagem));
+  const personagensFiltrados = data.results.filter((personagem) => {
+    const personagemStatus = personagem.status.toLowerCase();
+    const personagemEspecie = personagem.species.toLowerCase();
+    const personagemGenero = personagem.gender.toLowerCase();
+
+    const filtroStatusValue = estadoVida.value.toLowerCase();
+    const filtroEspecieValue = especie.value.toLowerCase();
+    const filtroGeneroValue = genero.value.toLowerCase();
+
+    if (
+      (filtroStatusValue === "all" ||
+        filtroStatus.includes(personagemStatus) ||
+        personagemStatus === filtroStatusValue) &&
+      (filtroEspecieValue === "all" ||
+        filtroEspecie.includes(personagemEspecie) ||
+        personagemEspecie === filtroEspecieValue) &&
+      (filtroGeneroValue === "all" ||
+        filtroGenero.includes(personagemGenero) ||
+        personagemGenero === filtroGeneroValue)
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  });
 
   let listaOrdenada = [...personagensFiltrados];
 
@@ -70,6 +92,8 @@ const atualizarListaPersonagens = () => {
     card.appendChild(divPersonagem);
   });
 };
+
+// Restante do código (event listeners, etc.)
 
 // Filtro de status
 const estadoVida = document.getElementById("status");

@@ -1,27 +1,18 @@
-import data from "./data/rickandmorty/rickandmorty.js"; // pego meus dados de data e trago pra essa página
-const resultado = data.results; // aqui estou atribuindo os resultados do meu arquivo data para uma variavel
-//oi carolzi
-
-//crio uma function que a finalidade é ver se o personagem ta vivo ou morto.Coloco o export pois essa função vai ser usada no meu arquivoo main.js
-export function filterByStatus(status) {
-  const filteredStatus = resultado.filter((resultado) => {
-    return resultado.status === status;
-  });
-  return filteredStatus;
-}
-
-export function filterSpecies(species) {
-  const filteredSpecies = resultado.filter(
-    (resultado) => resultado.species === species
+export function filterByStatus(personagens, status) {
+  return personagens.filter(
+    (personagemAtual) => personagemAtual.status === status
   );
-  return filteredSpecies;
 }
 
-export function filterGender(gender) {
-  const filteredGender = resultado.filter((resultado) => {
-    return resultado.gender === gender;
-  });
-  return filteredGender;
+export function filterSpecies(personagens, especies) {
+  return personagens.filter(
+    (personagemAtual) => personagemAtual.species === especies
+  );
+}
+export function filterGender(personagens, gender) {
+  return personagens.filter(
+    (personagemAtual) => personagemAtual.gender === gender
+  );
 }
 
 /*export function filterByOrigin(origin) {
